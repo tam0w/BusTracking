@@ -24,5 +24,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        track.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, bus_track.class);
+                startActivity(intent);
+            }
+        });
+        routeList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, route_list.class);
+                startActivity(intent);
+            }
+        });
+        drivInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, driv_info.class);
+                startActivity(intent);
+            }
+        });
     }
 }
