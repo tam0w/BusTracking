@@ -25,6 +25,6 @@ public class driv_info extends AppCompatActivity {
         EditText text = findViewById(R.id.id2);
         String vxtalue = text.getText().toString();
 
-        Reference ref = FirebaseDatabase.getInstance().getReference().child('test');
+//        Reference ref = FirebaseDatabase.getInstance().getReference().child('test');
     }
 }

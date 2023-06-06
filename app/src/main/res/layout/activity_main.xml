@@ -60,7 +60,7 @@
     <Button
         android:id="@+id/login"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="77dp"
+        android:layout_width="91dp"
         android:layout_height="32dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
