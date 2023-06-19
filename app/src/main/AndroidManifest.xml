@@ -25,13 +25,13 @@
             android:name=".driver_dboard"
             android:exported="false" />
         <activity
-            android:name=".company_login"
+            android:name=".register"
             android:exported="false" />
         <activity
             android:name=".driver_login"
             android:exported="false" />
         <activity
-            android:name=".login_type"
+            android:name=".account"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

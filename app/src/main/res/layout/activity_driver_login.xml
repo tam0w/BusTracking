@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ADBBFF"
-    tools:context=".login_type">
+    tools:context=".account">
 
     <TextView
         android:id="@+id/name"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/reg"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="230dp"
         android:layout_height="108dp"
@@ -66,10 +66,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pw" />
+        app:layout_constraintTop_toBottomOf="@+id/pw1" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/phnoreg"
         android:layout_width="325dp"
         android:layout_height="77dp"
         android:layout_marginStart="40dp"
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
     <EditText
-        android:id="@+id/pw"
+        android:id="@+id/pw1"
         android:layout_width="318dp"
         android:layout_height="82dp"
         android:layout_marginStart="40dp"
@@ -96,5 +96,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/phnoreg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

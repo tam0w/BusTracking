@@ -49,14 +49,12 @@ public class driv_info extends AppCompatActivity {
         dataRef.child(node).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Retrieve and process the data
                 String data = dataSnapshot.getValue(String.class);
                 textView.setText(data);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle any errors that occur during data retrieval
             }
         });
     }

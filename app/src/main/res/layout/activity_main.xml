@@ -58,15 +58,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/reg"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="91dp"
-        android:layout_height="32dp"
+        android:layout_width="84dp"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="#FFFFFF"
-        android:text="LOGIN"
-        android:textSize="10sp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="account"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
