@@ -39,7 +39,6 @@ public class register extends AppCompatActivity {
         public void onClick(View view) {
             String password;
             String num = String.valueOf(phno.getText());
-            num = num.trim();
             password = String.valueOf(pw1.getText());
 
             if (TextUtils.isEmpty(num)) {
@@ -64,15 +63,16 @@ public class register extends AppCompatActivity {
 
                                     Toast.makeText(register.this, "Account Created.",
                                             Toast.LENGTH_SHORT).show();
-
-                                    Intent intent = new Intent(register.this, driver_login.class);
+//                                    String uID = mAuth.getCurrentUser();
+                                    Intent intent = new Intent(register.this, register2.class);
+                                    intent.putExtra("num",num);
                                     startActivity(intent);
 
 
                                 } else {
                                     // If sign in fails, display a message to the user.
 
-                                    Toast.makeText(register.this, "Authentication failed.",
+                                    Toast.makeText(register.this, "Account could not be created.",
                                             Toast.LENGTH_SHORT).show();
 
                                 }
