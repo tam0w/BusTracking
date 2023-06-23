@@ -40,6 +40,7 @@ public class driv_info extends AppCompatActivity {
 
         // Create a database reference to the desired node
         dataRef = FirebaseDatabase.getInstance().getReference();
+        dataRef = dataRef.child("drivers");
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

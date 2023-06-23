@@ -63,7 +63,7 @@ public class register2 extends AppCompatActivity {
     }
 
     private void saveData(String driver, String phoneNumber, String routeData, String idData) {
-        String newDriverKey = registeredEmail;
+        String newDriverKey = phoneNumber;
 
         // Create a new child node under "drivers" with the unique key
         DatabaseReference newDriverRef = dataRef.child(newDriverKey);
@@ -71,6 +71,7 @@ public class register2 extends AppCompatActivity {
         // Set the values of "driv", "phno", "id", and "route" under the new child node
         newDriverRef.child("driv").setValue(driver);
         newDriverRef.child("phno").setValue(phoneNumber);
+        newDriverRef.child("email").setValue(registeredEmail);
         newDriverRef.child("id").setValue(idData);
         newDriverRef.child("route").setValue(routeData)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -79,8 +80,8 @@ public class register2 extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Data saved successfully
                             Toast.makeText(register2.this, "Account Registered Successfully", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(register2.this,driver_dboard.this);
-//                            startActivity(intent);
+                            Intent intent = new Intent(register2.this,driver_dboard.class);
+                            startActivity(intent);
                         } else {
                             // Failed to save data
                             Toast.makeText(register2.this, "Failed to save data", Toast.LENGTH_SHORT).show();
