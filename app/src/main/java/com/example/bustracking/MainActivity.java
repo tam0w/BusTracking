@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button track = findViewById(R.id.btn1);
-        Button login = findViewById(R.id.reg);
+        Button login = findViewById(R.id.add);
         Button routeList = findViewById(R.id.routelist);
         Button drivInfo = findViewById(R.id.driverinfo);
 

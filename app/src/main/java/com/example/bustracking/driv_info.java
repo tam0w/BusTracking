@@ -21,16 +21,21 @@ import java.lang.ref.Reference;
 public class driv_info extends AppCompatActivity {
 
     private DatabaseReference dataRef;
+    TextView fname;
+    TextView phno1;
+    TextView route1;
+    TextView id1;
+    EditText text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.driv_info);
         Button btn = findViewById(R.id.stop);
-        TextView name = findViewById(R.id.name);
-        TextView phno = findViewById(R.id.phno);
-        TextView route = findViewById(R.id.route);
-        TextView id = findViewById(R.id.idinfo);
+        TextView fname = findViewById(R.id.name);
+        TextView phno1 = findViewById(R.id.phno);
+        TextView route1 = findViewById(R.id.route);
+        TextView id1 = findViewById(R.id.idinfo);
         EditText text = findViewById(R.id.id2);
 
         // Create a database reference to the desired node
@@ -40,17 +45,23 @@ public class driv_info extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String node = text.getText().toString().trim();
-                retrieveDataFromNode(node, name);
+                retrieveDataFromNode(node, fname, id1, route1, phno1);
             }
         });
     }
 
-    private void retrieveDataFromNode(String node, final TextView textView) {
+    private void retrieveDataFromNode(String node, final TextView t, final TextView t1, final TextView t2, final TextView t3) {
         dataRef.child(node).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String data = dataSnapshot.getValue(String.class);
-                textView.setText(data);
+                String name = dataSnapshot.child("driv").getValue(String.class);
+                String phno = dataSnapshot.child("phno").getValue(String.class);
+                String route = dataSnapshot.child("route").getValue(String.class);
+                String id = dataSnapshot.child("id").getValue(String.class);
+                t.setText(name);
+                t3.setText(phno);
+                t2.setText(route);
+                t1.setText(id);
             }
 
             @Override

@@ -60,11 +60,11 @@
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="360dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="26dp"
+        android:layout_width="400dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="6dp"
         android:text="Driver Name"
         android:textAlignment="center"
         android:textColor="#6750A3"
@@ -73,16 +73,15 @@
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stop" />
 
     <TextView
         android:id="@+id/route"
-        android:layout_width="362dp"
+        android:layout_width="400dp"
         android:layout_height="58dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="6dp"
         android:text="Route"
         android:textAlignment="center"
         android:textColor="#6750A3"
@@ -96,12 +95,11 @@
 
     <TextView
         android:id="@+id/idinfo"
-        android:layout_width="362dp"
+        android:layout_width="400dp"
         android:layout_height="53dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="89dp"
         android:text="Driver ID || Bus ID"
         android:textAlignment="center"
         android:textColor="#6750A3"
@@ -111,16 +109,15 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/route" />
 
     <TextView
         android:id="@+id/phno"
-        android:layout_width="362dp"
+        android:layout_width="400dp"
         android:layout_height="61dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="6dp"
         android:text="Phone No"
         android:textAlignment="center"
         android:textColor="#6750A3"
@@ -129,7 +126,6 @@
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
