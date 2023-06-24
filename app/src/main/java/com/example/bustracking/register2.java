@@ -42,7 +42,7 @@ public class register2 extends AppCompatActivity {
 
         registeredEmail = getIntent().getStringExtra("num");
         Button btnSave = findViewById(R.id.add);
-        TextView name = findViewById(R.id.namereg);
+        TextView name = findViewById(R.id.emaillog);
         TextView phno = findViewById(R.id.phnoreg);
         TextView route = findViewById(R.id.routenoreg);
         TextView id = findViewById(R.id.busnoreg);

@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/routenoreg" />
 
     <EditText
-        android:id="@+id/namereg"
+        android:id="@+id/emaillog"
         android:layout_width="350dp"
         android:layout_height="62dp"
         android:layout_marginStart="30dp"
@@ -125,6 +125,6 @@
         android:textColor="#473468"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namereg" />
+        app:layout_constraintTop_toBottomOf="@+id/emaillog" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

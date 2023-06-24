@@ -16,8 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Scanner;
-
 public class register extends AppCompatActivity {
 
     @Override
@@ -25,7 +23,7 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         Button registerbtn = findViewById(R.id.add);
-        EditText phno = findViewById(R.id.namereg);
+        EditText phno = findViewById(R.id.emaillog);
         EditText pw1 = findViewById(R.id.pw1);
         EditText pw2 = findViewById(R.id.pw2);
         FirebaseAuth mAuth;
@@ -42,7 +40,7 @@ public class register extends AppCompatActivity {
             password = String.valueOf(pw1.getText());
 
             if (TextUtils.isEmpty(num)) {
-                Toast.makeText(register.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+                Toast.makeText(register.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (TextUtils.isEmpty(password)) {
@@ -50,9 +48,6 @@ public class register extends AppCompatActivity {
                 return;
             }
             String password1 = String.valueOf(pw2.getText());
-            Scanner sc = new Scanner(System.in);
-            System.out.println(password);
-            System.out.println(password1);
 
             if (password.equals(password1)) {
                 mAuth.createUserWithEmailAndPassword(num, password)

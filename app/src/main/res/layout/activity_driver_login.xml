@@ -69,14 +69,14 @@
         app:layout_constraintTop_toBottomOf="@+id/pw1" />
 
     <EditText
-        android:id="@+id/namereg"
+        android:id="@+id/emaillog"
         android:layout_width="325dp"
         android:layout_height="77dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="23dp"
         android:layout_marginEnd="46dp"
         android:ems="10"
-        android:hint="Phone Number"
+        android:hint="Email"
         android:inputType="text"
         android:textColor="#473468"
         android:textSize="34sp"
@@ -96,5 +96,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namereg" />
+        app:layout_constraintTop_toBottomOf="@+id/emaillog" />
 </androidx.constraintlayout.widget.ConstraintLayout>
