@@ -8,23 +8,6 @@
     tools:context=".account">
 
     <Button
-        android:id="@+id/stop"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="230dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="91dp"
-        android:background="#FFFFFF"
-        android:text="STOP TRACKING"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start" />
-
-    <Button
         android:id="@+id/signout"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="132dp"
@@ -41,39 +24,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-    <Button
-        android:id="@+id/start"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="230dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="91dp"
-        android:background="#FFFFFF"
-        android:text="ENABLE TRACKING"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/stop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/name"
         android:layout_width="360dp"
         android:layout_height="80dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="26dp"
         android:text="Driver Name"
         android:textAlignment="center"
         android:textColor="#6750A3"
         android:textColorLink="#6750A3"
-        android:textDirection="firstStrongRtl"
+        android:textDirection="locale"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -82,9 +47,8 @@
         android:layout_width="362dp"
         android:layout_height="58dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="276dp"
         android:layout_marginEnd="26dp"
-        android:text="Route"
         android:textAlignment="center"
         android:textColor="#6750A3"
         android:textColorLink="#6750A3"
@@ -92,7 +56,25 @@
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/route3"
+        android:layout_width="362dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="26dp"
+        android:text="Route No:"
+        android:textAlignment="center"
+        android:textColor="#46376E"
+        android:textColorLink="#6750A3"
+        android:textDirection="firstStrongRtl"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -101,11 +83,64 @@
         android:layout_width="362dp"
         android:layout_height="53dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="376dp"
         android:layout_marginEnd="26dp"
-        android:text="Driver ID || Bus ID"
         android:textAlignment="center"
         android:textColor="#6750A3"
+        android:textColorLink="#6750A3"
+        android:textDirection="firstStrongRtl"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/idinfo2"
+        android:layout_width="283dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="26dp"
+        android:text="Bus No:"
+        android:textAlignment="center"
+        android:textColor="#46376E"
+        android:textColorLink="#6750A3"
+        android:textDirection="firstStrongRtl"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/idinfo3"
+        android:layout_width="386dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="436dp"
+        android:layout_marginEnd="26dp"
+        android:text="Current Driver Coordinates:"
+        android:textAlignment="center"
+        android:textColor="#46376E"
+        android:textColorLink="#6750A3"
+        android:textDirection="firstStrongRtl"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/coords"
+        android:layout_width="393dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="532dp"
+        android:layout_marginEnd="26dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#6750A2"
         android:textColorLink="#6750A3"
         android:textDirection="firstStrongRtl"
         android:textSize="34sp"
@@ -119,7 +154,7 @@
         android:layout_width="362dp"
         android:layout_height="61dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="152dp"
         android:layout_marginEnd="26dp"
         android:text="Phone No"
         android:textAlignment="center"
@@ -133,19 +168,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+    <TextView
+        android:id="@+id/phno2"
+        android:layout_width="362dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="26dp"
+        android:text="Phone No:"
+        android:textAlignment="center"
+        android:textColor="#46376E"
+        android:textColorLink="#6750A3"
+        android:textDirection="firstStrongRtl"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
     <View
         android:id="@+id/divider"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="176dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stop" />
+        app:layout_constraintTop_toBottomOf="@+id/coords" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -156,6 +208,7 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,12 @@
 package com.example.bustracking;
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,12 +31,16 @@ public class driver_dboard extends AppCompatActivity {
     Button logout;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     DatabaseReference dataRef;
+    private LocationManager locationManager;
+    private LocationListener locationListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseUser currentUser = mAuth.getCurrentUser();
         setContentView(R.layout.activity_driver_dboard);
+
+// PREV CODE STARTS FROM HERE
         logout = findViewById(R.id.signout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,32 +55,75 @@ public class driver_dboard extends AppCompatActivity {
         final TextView phno1 = findViewById(R.id.phno);
         final TextView route1 = findViewById(R.id.route);
         final TextView id1 = findViewById(R.id.idinfo);
+        final TextView coords = findViewById(R.id.coords);
 
         // Create a database reference to the "drivers" node
         dataRef = FirebaseDatabase.getInstance().getReference().child("drivers");
 
         String email = mAuth.getCurrentUser().getEmail().toString();
         if (!email.isEmpty()) {
-            searchDriverByEmail(email, fname, id1, route1, phno1);
+            searchDriverByEmail(email, fname, id1, route1, phno1, coords);
         }
 
     }
 
-    private void searchDriverByEmail(final String email, final TextView t, final TextView t1, final TextView t2, final TextView t3) {
+    private void searchDriverByEmail(final String email, final TextView t, final TextView t1, final TextView t2, final TextView t3, final TextView coords) {
         Query query = dataRef.orderByChild("email").equalTo(email);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("NewApi")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    for (final DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                         String name = childSnapshot.child("driv").getValue(String.class);
                         String phno = childSnapshot.child("phno").getValue(String.class);
                         String route = childSnapshot.child("route").getValue(String.class);
                         String id = childSnapshot.child("id").getValue(String.class);
+                        float latitude = childSnapshot.child("latitude").getValue(float.class);
+                        float longitude = childSnapshot.child("longitude").getValue(float.class);
                         t.setText(name);
                         t3.setText(phno);
                         t2.setText(route);
                         t1.setText(id);
+                        String coordinates = "("+longitude+" , "+latitude+")";
+                        coords.setText(coordinates);
+                        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+//                         Obtain the user's location
+                        locationListener = new LocationListener() {
+                            @Override
+                            public void onLocationChanged(Location location) {
+                                // Handle location updates here
+                                double latitude = location.getLatitude();
+                                double longitude = location.getLongitude();
+
+                                // Store the latitude and longitude in the child snapshot
+                                childSnapshot.child("latitude").getRef().setValue(latitude);
+                                childSnapshot.child("longitude").getRef().setValue(longitude);
+
+                            }
+
+                            @Override
+                            public void onStatusChanged(String provider, int status, Bundle extras) {}
+
+                            @Override
+                            public void onProviderEnabled(String provider) {}
+
+                            @Override
+                            public void onProviderDisabled(String provider) {}
+
+
+                        };
+
+                        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                                checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                            // Request location permission if not granted
+                            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+                            return;
+                        }
+
+                        // Register the location listener with the location manager
+                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 0, locationListener);
                     }
                 }
             }
@@ -80,4 +134,9 @@ public class driver_dboard extends AppCompatActivity {
             }
         });
     }
+
 }
+
+
+
+
