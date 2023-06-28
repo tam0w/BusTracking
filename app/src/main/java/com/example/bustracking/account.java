@@ -16,7 +16,7 @@ public class account extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitivity_account);
-        Button compbtn = findViewById(R.id.start);
+        Button compbtn = findViewById(R.id.track);
         Button driverbtn = findViewById(R.id.stop);
 
         driverbtn.setOnClickListener(new View.OnClickListener() {

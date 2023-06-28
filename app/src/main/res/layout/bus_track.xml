@@ -8,7 +8,7 @@
     tools:context=".account">
 
     <Button
-        android:id="@+id/start"
+        android:id="@+id/track"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="210dp"
         android:layout_height="65dp"
