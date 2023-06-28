@@ -11,30 +11,19 @@ import android.widget.TextView;
 
 
 public class bus_track extends AppCompatActivity {
-    String numb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bus_track);
-        EditText numb1 = findViewById(R.id.busnosearch);
-        TextView sup = findViewById(R.id.name);
-        numb = numb1.getText().toString();
+        EditText numb1 = findViewById(R.id.search);
         Button track = findViewById(R.id.osmtrackk);
         track.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(bus_track.this, maps.class);
-                startActivity(intent);
-            }
-        });
-        Button osm = findViewById(R.id.osmtrackk);
-        track.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent intent1 = new Intent(bus_track.this, osmtrack.class);
-//                intent1.putExtra("numb",numb);
-//                startActivity(intent1);
-                sup.setText(numb);
+                String numb = numb1.getText().toString();
+                Intent intent1 = new Intent(bus_track.this, osmtrack.class);
+                intent1.putExtra("numb",numb);
+                startActivity(intent1);
             }
         });
 

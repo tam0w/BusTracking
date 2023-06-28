@@ -1,6 +1,9 @@
 package com.example.bustracking;
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -75,29 +78,33 @@ public class osmtrack extends AppCompatActivity {
         GeoPoint startPoint = new GeoPoint(12.9141, 74.8560);
         mapController.setCenter(startPoint);
 
-        // Add a map click listener
-        MapEventsReceiver mapEventsReceiver = new MapEventsReceiver() {
-            @Override
-            public boolean singleTapConfirmedHelper(GeoPoint p) {
-                // Handle map click events here
-                return false;
-            }
+        // Create a custom marker with a custom icon
+        // Create a custom marker with a custom icon
+        Drawable customMarkerIcon = ContextCompat.getDrawable(this, R.drawable.custom_marker);
+        int markerWidth = customMarkerIcon.getIntrinsicWidth(); // Original marker width
+        int markerHeight = customMarkerIcon.getIntrinsicHeight(); // Original marker height
 
-            @Override
-            public boolean longPressHelper(GeoPoint p) {
-                // Handle long press events here
-                return false;
-            }
-        };
+// Define the desired marker size (e.g., 50x50 pixels)
+        int desiredWidth = 50;
+        int desiredHeight = 50;
 
-        MapEventsOverlay mapEventsOverlay = new MapEventsOverlay(mapEventsReceiver);
-        mapView.getOverlays().add(0, mapEventsOverlay);
+// Calculate the scale factor for resizing the marker
+        float scaleWidth = (float) desiredWidth / markerWidth;
+        float scaleHeight = (float) desiredHeight / markerHeight;
 
-        // Create a marker and add it to the map
+// Create a new resized marker icon
+        int newWidth = Math.round(markerWidth * scaleWidth);
+        int newHeight = Math.round(markerHeight * scaleHeight);
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(((BitmapDrawable) customMarkerIcon).getBitmap(), newWidth, newHeight, true);
+        Drawable resizedMarkerIcon = new BitmapDrawable(getResources(), resizedBitmap);
+
+// Create the marker and set the resized icon
         marker = new Marker(mapView);
+        marker.setIcon(resizedMarkerIcon);
         marker.setPosition(startPoint);
         mapView.getOverlays().add(marker);
     }
+
 
     private void startFetchingGeoPoint() {
         handler = new Handler();
@@ -131,9 +138,10 @@ public class osmtrack extends AppCompatActivity {
 
                             if (latitude != null && longitude != null) {
                                 updateMarkerPosition(latitude, longitude);
+                                Toast.makeText(osmtrack.this, "Position updated.", Toast.LENGTH_SHORT).show();
                             } else {
                                 // Handle case when latitude or longitude is missing
-                                Toast.makeText(osmtrack.this, childNodeToSearch, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(osmtrack.this, "Coordinates missing.", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             // Handle case when child node is not found
