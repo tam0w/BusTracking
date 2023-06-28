@@ -8,7 +8,22 @@
     tools:context=".account">
 
     <Button
-        android:id="@+id/track"
+        android:id="@+id/osmtrackk"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="210dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="91dp"
+        android:background="#FFFFFF"
+        android:text="osm"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/busnosearch" />
+
+    <Button
+        android:id="@+id/track2"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="210dp"
         android:layout_height="65dp"

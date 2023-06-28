@@ -21,10 +21,10 @@
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/track" />
+        app:layout_constraintTop_toBottomOf="@+id/osmtrackk" />
 
     <Button
-        android:id="@+id/track"
+        android:id="@+id/osmtrackk"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="230dp"
         android:layout_height="108dp"
@@ -80,7 +80,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="42dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/track"
+        app:layout_constraintBottom_toTopOf="@+id/osmtrackk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
