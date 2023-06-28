@@ -1,10 +1,8 @@
-
 package com.example.bustracking;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -34,16 +32,15 @@ public class osmtrack extends AppCompatActivity {
     private MapView mapView;
     private IMapController mapController;
     private Marker marker;
-
     private Handler handler;
     private Runnable runnable;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Initialize the osmdroid configuration
         Configuration.getInstance().load(getApplicationContext(), getPreferences(MODE_PRIVATE));
-
         setContentView(R.layout.activity_osmtrack);
 
         // Check for necessary permissions
@@ -121,7 +118,7 @@ public class osmtrack extends AppCompatActivity {
     }
 
     private void fetchGeoPointFromDatabase() {
-        String childNodeToSearch = "9380890029"; // The child node you want to search for
+        String childNodeToSearch = getIntent().getStringExtra("numb"); // The child node you want to search for
 
         FirebaseDatabase.getInstance().getReference("drivers")
                 .child(childNodeToSearch)
@@ -136,7 +133,7 @@ public class osmtrack extends AppCompatActivity {
                                 updateMarkerPosition(latitude, longitude);
                             } else {
                                 // Handle case when latitude or longitude is missing
-                                Toast.makeText(osmtrack.this, "Latitude or Longitude missing for the child node", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(osmtrack.this, childNodeToSearch, Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             // Handle case when child node is not found
