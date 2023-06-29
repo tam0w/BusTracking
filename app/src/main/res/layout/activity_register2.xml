@@ -56,11 +56,13 @@
         android:layout_width="281dp"
         android:layout_height="66dp"
         android:layout_marginStart="65dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="122dp"
         android:layout_marginEnd="65dp"
+        android:layout_marginBottom="50dp"
         android:background="#FFFFFF"
         android:text="Add Details"
         android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/routenoreg" />
@@ -70,7 +72,7 @@
         android:layout_width="350dp"
         android:layout_height="62dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="280dp"
         android:layout_marginEnd="31dp"
         android:ems="10"
         android:hint="Full Name"
@@ -79,30 +81,30 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/busnoreg"
         android:layout_width="350dp"
         android:layout_height="62dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="31dp"
         android:ems="10"
-        android:hint="Bus No"
+        android:hint="BUS ID // BUS NO"
         android:inputType="text"
         android:textColor="#473468"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phnoreg" />
+        app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
     <EditText
         android:id="@+id/routenoreg"
         android:layout_width="350dp"
         android:layout_height="62dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="31dp"
         android:ems="10"
         android:hint="Route No"
@@ -111,12 +113,13 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/busnoreg" />
+        app:layout_constraintTop_toBottomOf="@+id/phnoreg" />
 
     <EditText
         android:id="@+id/phnoreg"
         android:layout_width="350dp"
         android:layout_height="62dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="31dp"
         android:ems="10"
@@ -125,6 +128,7 @@
         android:textColor="#473468"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emaillog" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

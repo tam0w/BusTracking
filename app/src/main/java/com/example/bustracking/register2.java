@@ -63,7 +63,7 @@ public class register2 extends AppCompatActivity {
     }
 
     private void saveData(String driver, String phoneNumber, String routeData, String idData) {
-        String newDriverKey = phoneNumber;
+        String newDriverKey = idData;
 
         // Create a new child node under "drivers" with the unique key
         DatabaseReference newDriverRef = dataRef.child(newDriverKey);
