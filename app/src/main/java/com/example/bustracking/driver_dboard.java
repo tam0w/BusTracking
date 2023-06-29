@@ -60,7 +60,7 @@ public class driver_dboard extends AppCompatActivity {
         // Create a database reference to the "drivers" node
         dataRef = FirebaseDatabase.getInstance().getReference().child("drivers");
 
-        String email = mAuth.getCurrentUser().getEmail().toString();
+        String email = mAuth.getCurrentUser().getEmail();
         if (!email.isEmpty()) {
             searchDriverByEmail(email, fname, id1, route1, phno1, coords);
         }
@@ -79,27 +79,28 @@ public class driver_dboard extends AppCompatActivity {
                         String phno = childSnapshot.child("phno").getValue(String.class);
                         String route = childSnapshot.child("route").getValue(String.class);
                         String id = childSnapshot.child("id").getValue(String.class);
-                        float latitude = childSnapshot.child("latitude").getValue(float.class);
-                        float longitude = childSnapshot.child("longitude").getValue(float.class);
                         t.setText(name);
                         t3.setText(phno);
                         t2.setText(route);
                         t1.setText(id);
-                        String coordinates = "("+longitude+" , "+latitude+")";
-                        coords.setText(coordinates);
-                        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-//                         Obtain the user's location
+                        if (childSnapshot.child("latitude").exists() && childSnapshot.child("longitude").exists()) {
+                            float latitude = childSnapshot.child("latitude").getValue(float.class);
+                            float longitude = childSnapshot.child("longitude").getValue(float.class);
+                            String coordinates = "(" + longitude + " , " + latitude + ")";
+                            coords.setText(coordinates);
+                        }
+                        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                         locationListener = new LocationListener() {
                             @Override
                             public void onLocationChanged(Location location) {
                                 // Handle location updates here
-                                double latitude = location.getLatitude();
-                                double longitude = location.getLongitude();
+                                float latitudeset = (float) location.getLatitude();
+                                float longitudeset = (float) location.getLongitude();
 
-                                // Store the latitude and longitude in the child snapshot
-                                childSnapshot.child("latitude").getRef().setValue(latitude);
-                                childSnapshot.child("longitude").getRef().setValue(longitude);
+//                                 Store the latitude and longitude in the child snapshot
+                                childSnapshot.child("latitude").getRef().setValue(latitudeset);
+                                childSnapshot.child("longitude").getRef().setValue(longitudeset);
 
                             }
 
