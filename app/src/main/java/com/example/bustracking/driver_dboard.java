@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -84,24 +85,31 @@ public class driver_dboard extends AppCompatActivity {
                         t2.setText(route);
                         t1.setText(id);
 
-                        if (childSnapshot.child("latitude").exists() && childSnapshot.child("longitude").exists()) {
-                            float latitude = childSnapshot.child("latitude").getValue(float.class);
-                            float longitude = childSnapshot.child("longitude").getValue(float.class);
-                            String coordinates = "(" + longitude + " , " + latitude + ")";
-                            coords.setText(coordinates);
-                        }
+//                        if (childSnapshot.child("latitude").exists() && childSnapshot.child("longitude").exists()) {
+//                            float latitude = childSnapshot.child("latitude").getValue(float.class);
+//                            float longitude = childSnapshot.child("longitude").getValue(float.class);
+//                            String coordinates = "(" + longitude + " , " + latitude + ")";
+//                            coords.setText(coordinates);
+//                        }
                         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                         locationListener = new LocationListener() {
+                            int counter = 0;
                             @Override
                             public void onLocationChanged(Location location) {
                                 // Handle location updates here
                                 float latitudeset = (float) location.getLatitude();
                                 float longitudeset = (float) location.getLongitude();
+                                counter++;
 
 //                                 Store the latitude and longitude in the child snapshot
                                 childSnapshot.child("latitude").getRef().setValue(latitudeset);
                                 childSnapshot.child("longitude").getRef().setValue(longitudeset);
-
+                                Toast.makeText(driver_dboard.this, "Location updated", Toast.LENGTH_SHORT).show();
+                                float latitude = childSnapshot.child("latitude").getValue(float.class);
+                                float longitude = childSnapshot.child("longitude").getValue(float.class);
+                                String coordinates = "(" + longitude + " , " + latitude + ")"+counter;
+//                                String coordinates = longitude+" "+latitude+" "+longitudeset+" "+latitudeset+" ";
+                                coords.setText(coordinates);
                             }
 
                             @Override
@@ -124,7 +132,7 @@ public class driver_dboard extends AppCompatActivity {
                         }
 
                         // Register the location listener with the location manager
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 0, locationListener);
+                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 7000, 0, locationListener);
                     }
                 }
             }
