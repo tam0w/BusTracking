@@ -65,7 +65,6 @@ public class register extends AppCompatActivity {
 
 
                                 } else {
-                                    // If sign in fails, display a message to the user.
 
                                     Toast.makeText(register.this, "Account could not be created.",
                                             Toast.LENGTH_SHORT).show();

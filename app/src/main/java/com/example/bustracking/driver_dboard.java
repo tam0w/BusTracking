@@ -41,7 +41,6 @@ public class driver_dboard extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         setContentView(R.layout.activity_driver_dboard);
 
-// PREV CODE STARTS FROM HERE
         logout = findViewById(R.id.signout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,12 +84,6 @@ public class driver_dboard extends AppCompatActivity {
                         t2.setText(route);
                         t1.setText(id);
 
-//                        if (childSnapshot.child("latitude").exists() && childSnapshot.child("longitude").exists()) {
-//                            float latitude = childSnapshot.child("latitude").getValue(float.class);
-//                            float longitude = childSnapshot.child("longitude").getValue(float.class);
-//                            String coordinates = "(" + longitude + " , " + latitude + ")";
-//                            coords.setText(coordinates);
-//                        }
                         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                         locationListener = new LocationListener() {
                             int counter = 0;
@@ -107,7 +100,7 @@ public class driver_dboard extends AppCompatActivity {
                                 Toast.makeText(driver_dboard.this, "Location updated", Toast.LENGTH_SHORT).show();
                                 float latitude = childSnapshot.child("latitude").getValue(float.class);
                                 float longitude = childSnapshot.child("longitude").getValue(float.class);
-                                String coordinates = "(" + longitude + " , " + latitude + ")"+counter;
+                                String coordinates = "(" + longitude + " , " + latitude + ")";
 //                                String coordinates = longitude+" "+latitude+" "+longitudeset+" "+latitudeset+" ";
                                 coords.setText(coordinates);
                             }

@@ -62,11 +62,10 @@ public class driv_info extends AppCompatActivity {
                         t3.setText(phno);
                         t2.setText(route);
                         t1.setText(childId);
-                        return; // Exit the loop after finding the matching ID
+                        return;
                     }
                 }
-                // If the loop finishes without finding a matching ID
-                // You can display an error message or perform any other action here
+
             }
 
             @Override

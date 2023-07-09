@@ -76,27 +76,22 @@ public class osmtrack extends AppCompatActivity {
         GeoPoint startPoint = new GeoPoint(12.9141, 74.8560);
         mapController.setCenter(startPoint);
 
-        // Create a custom marker with a custom icon
-        // Create a custom marker with a custom icon
-        Drawable customMarkerIcon = ContextCompat.getDrawable(this, R.drawable.custom_marker);
-        int markerWidth = customMarkerIcon.getIntrinsicWidth(); // Original marker width
-        int markerHeight = customMarkerIcon.getIntrinsicHeight(); // Original marker height
 
-// Define the desired marker size (e.g., 50x50 pixels)
+        Drawable customMarkerIcon = ContextCompat.getDrawable(this, R.drawable.custom_marker);
+        int markerWidth = customMarkerIcon.getIntrinsicWidth();
+        int markerHeight = customMarkerIcon.getIntrinsicHeight();
+
         int desiredWidth = 50;
         int desiredHeight = 50;
 
-// Calculate the scale factor for resizing the marker
         float scaleWidth = (float) desiredWidth / markerWidth;
         float scaleHeight = (float) desiredHeight / markerHeight;
 
-// Create a new resized marker icon
         int newWidth = Math.round(markerWidth * scaleWidth);
         int newHeight = Math.round(markerHeight * scaleHeight);
         Bitmap resizedBitmap = Bitmap.createScaledBitmap(((BitmapDrawable) customMarkerIcon).getBitmap(), newWidth, newHeight, true);
         Drawable resizedMarkerIcon = new BitmapDrawable(getResources(), resizedBitmap);
 
-// Create the marker and set the resized icon
         marker = new Marker(mapView);
         marker.setIcon(resizedMarkerIcon);
         marker.setPosition(startPoint);
